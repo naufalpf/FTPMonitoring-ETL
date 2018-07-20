@@ -1,0 +1,3085 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/7/2018 8:51:05 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-57FOU7P"
+  DTS:CreatorName="DESKTOP-57FOU7P\fikri"
+  DTS:DTSID="{0C359857-B703-4F9E-8A35-5CCDAD0BAD95}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="MonitoringPackageFromBEILoop"
+  DTS:PackageType="5"
+  DTS:VersionBuild="152"
+  DTS:VersionGUID="{954081FC-792A-4F33-9DC0-899FDDEF3F4D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.FtpMonitoring]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+      DTS:ObjectName="localhost.FtpMonitoring">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=NAUFAL-PF\MSSQ;Initial Catalog=FtpMonitoringDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2EEF12FE-4867-46A7-AFD0-ED47FF9F5343}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="countRow">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{28D4B0EF-1E01-47AD-8CF8-80D87A29C4C0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="fileId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B960F2B1-C926-4D52-A148-C6E11BAD637B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="fileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D1266288-5A26-4C71-9DC7-023F117797FE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="fileNames">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D2ACD70F-847A-438A-A1D8-99BC9F20F266}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="filesIds">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{297F4447-8F0C-4C95-B7BF-56DD7CBBBD50}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="monitoringConfigurationIdBefore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7012FCB1-B335-4F0D-95B7-B1E711AACBC0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="monitoringConfigurationIds">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Loop Foreach Template File Id"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Loop Foreach Template File Id"
+      DTS:DTSID="{3618BA7D-46B9-4EBC-ADEB-4CFDD11A510A}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Loop Foreach Template File Id">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachADOEnumerator"
+        DTS:DTSID="{FB7ACBC6-B629-4B42-808A-67E0FB813F13}"
+        DTS:ObjectName="{FB7ACBC6-B629-4B42-808A-67E0FB813F13}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateRowsInFirstTable"
+            VarName="User::filesIds" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{8FAAF2E4-0DA5-40DC-83B0-B2B8D30B3D0D}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="monitoringConfigurationId">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{1158C738-D4E8-4513-9B03-ED0517B6F542}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="monitoringLogId">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Loop Foreach Template File Id\FTP BEI (Ready)"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:Disabled="True"
+          DTS:DTSID="{F02872E1-C613-4888-9EB2-3AD31E1DE3F0}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FTP BEI (Ready)">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\FTP BEI (Ready)\Check The Data That Is Ready To Be Transferred"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Check The Data That Is Ready To Be Transferred"
+              DTS:DTSID="{93262112-5334-4B34-88B9-BEE3CBAEC116}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Check The Data That Is Ready To Be Transferred"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                  SQLTask:SqlStatementSource="DECLARE @fileTemplateName Nvarchar(128)&#xA;DECLARE @extLength INT&#xA;DECLARE @countRow INT&#xA;DECLARE @command NVARCHAR(255)&#xA;DECLARE @rawFiles TABLE (ID int IDENTITY, FileProp NVARCHAR(500))&#xA;&#xA;SET @fileTemplateName = (SELECT Name From MasterFile where Id = ?)&#xA;SET @command = 'cd.. &amp;&amp; &quot;D:\Bahan Kuliah\Kerja Praktik\OJK\FtpBeiDirList.bat&quot; ' + 'DATA_EXPORT_IMPORT/EXPORT/OJK ' + @fileTemplateName + '.rar.ready' &#xA;&#xA;INSERT INTO @rawFiles EXECUTE xp_cmdshell @command&#xA;delete from @rawFiles where FileProp like 'dir%' or FileProp like 'No file%'&#xA;&#xA;SET @countRow = (SELECT COUNT(FileProp) from @rawFiles where FileProp like (SELECT '%' + @fileTemplateName + '.ready'))&#xA;&#xA;IF @countRow &gt; 0&#xA;&#x9;truncate table staging.RawFiles&#xA;&#x9;insert into [FtpMonitoring].[staging].[RawFiles] (FileName, FileExtension, FileModifiedDatetime)&#xA;&#x9;select left(SUBSTRING(FileProp, 65, 250), CHARINDEX('.', SUBSTRING(FileProp, 65, 250)) - 1) &#xA;&#x9;      ,right(SUBSTRING(FileProp, 65, 250), len(SUBSTRING(FileProp, 65, 250)) -  CHARINDEX('.', SUBSTRING(FileProp, 65, 250)))&#xA;&#x9;&#x9;  ,CAST(SUBSTRING(FileProp, 44, 20) as datetime) &#xA;&#x9;from @rawFiles where FileProp like (SELECT '%' + @fileTemplateName + '.rar.ready')&#xA;&#xA;select @countRow"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::countRow" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::fileId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="131"
+                    SQLTask:ParameterSize="18" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\FTP BEI (Ready)\Insert New File Data Into Table Monitoring Log Detail"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Insert New File Data Into Table Monitoring Log Detail"
+              DTS:DTSID="{B3705430-549D-475C-A76C-4131A4F2573C}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Insert New File Data Into Table Monitoring Log Detail"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                  SQLTask:SqlStatementSource="DECLARE @monitoringLogId INT&#xA;DECLARE @monitoringConfigurationId INT&#xA;DECLARE @statusId INT&#xA;&#xA;/* Input Variables From SSIS&#xA; * Variables Name :&#xA; * 1. monitoringLogId&#xA; * 2. monitoringConfigurationId&#xA; */&#xA;SET @monitoringLogId = ?&#xA;SET @monitoringConfigurationId = ?&#xA;&#xA;/* Retrieve StatusId Based On Monitoring Configuration Id */&#xA;SET @statusId = (SELECT StatusId FROM MonitoringConfiguration &#xA;                 WHERE Id = @monitoringConfigurationId)&#xA;&#xA;/* Insert New File Properties From Table staging.RawFiles Into MonitoringLogDetail */&#xA;INSERT INTO dbo.MonitoringLogDetail (MonitoringLogId, FileName, FileModifiedDatetime, StatusId, ETLRunDatetime)&#xA;SELECT @monitoringLogId, FileName, FileModifiedDatetime, @statusId, GETDATE()&#xA;FROM staging.RawFiles" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::monitoringLogId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="131"
+                    SQLTask:ParameterSize="18" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::monitoringConfigurationId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="131"
+                    SQLTask:ParameterSize="18" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\FTP BEI (Ready)\Update Status On Monitoring Log Table"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Insert Data Into Monitoring Log Detail"
+              DTS:DTSID="{9B4A0DFD-1E0C-4B04-8342-0C156580C6DC}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Update Status On Monitoring Log Table"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                  SQLTask:SqlStatementSource="UPDATE dbo.MonitoringLog SET Status = 1&#xA;WHERE FileTemplateId = ? " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::fileId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="131"
+                    SQLTask:ParameterSize="18" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Loop Foreach Template File Id\FTP BEI (Ready).PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{84ED9E7B-438F-4201-A78C-FC6321BF66AA}"
+              DTS:EvalOp="1"
+              DTS:Expression="@[User::countRow] &gt;0"
+              DTS:From="Package\Loop Foreach Template File Id\FTP BEI (Ready)\Check The Data That Is Ready To Be Transferred"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Loop Foreach Template File Id\FTP BEI (Ready)\Update Status On Monitoring Log Table" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Loop Foreach Template File Id\FTP BEI (Ready).PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{CC55644C-CD28-4A8E-BAA4-AE7561432A11}"
+              DTS:From="Package\Loop Foreach Template File Id\FTP BEI (Ready)\Update Status On Monitoring Log Table"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\Loop Foreach Template File Id\FTP BEI (Ready)\Insert New File Data Into Table Monitoring Log Detail" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:Disabled="True"
+          DTS:DTSID="{912E2F7F-B7F3-447A-8943-87BAA0AD0B60}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FTP OJK (Ready_Done)">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{7E3827D6-8D7B-45B1-85D8-76654AC7500B}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="fileNames">
+              <DTS:VariableValue
+                DTS:DataSubType="ManagedSerializable"
+                DTS:DataType="13">
+                <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+                  <SOAP-ENV:Body>
+                    <xsd:anyType
+                      id="ref-1"></xsd:anyType>
+                  </SOAP-ENV:Body>
+                </SOAP-ENV:Envelope>
+              </DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Check Availability FileNames With Extension (rar_ready_transfer) On Table Monitoring Detail"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Check Availability FileNames With Extension (rar_ready_transfer)"
+              DTS:DTSID="{477E166A-AF41-491B-9C10-B23169A443F7}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Check Availability FileNames With Extension (rar_ready_transfer) On Table Monitoring Detail"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                  SQLTask:SqlStatementSource="select count(FileName) from dbo.MonitoringLogDetail &#xA;where MonitoringLogId = ? and FileExtension = 'rar.ready.transfer'"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::countRow" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::monitoringLogId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="131"
+                    SQLTask:ParameterSize="18" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Loop Foeach File Names"
+              DTS:CreationName="STOCK:FOREACHLOOP"
+              DTS:Description="Loop Foeach File Names On  Table Monitoring Log Detail With Extension (rar.ready)"
+              DTS:DTSID="{46799AE1-3609-492A-BFE8-C9FEB3755048}"
+              DTS:ExecutableType="STOCK:FOREACHLOOP"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Loop Foeach File Names">
+              <DTS:ForEachEnumerator
+                DTS:CreationName="Microsoft.ForEachADOEnumerator"
+                DTS:DTSID="{71AFB90A-42F2-457F-BB9E-1A9EE01351BB}"
+                DTS:ObjectName="{C220FD1F-B889-44A4-AC81-ED9DB81D0102}">
+                <DTS:ObjectData>
+                  <FEEADO
+                    EnumType="EnumerateRowsInFirstTable"
+                    VarName="User::fileNames" />
+                </DTS:ObjectData>
+              </DTS:ForEachEnumerator>
+              <DTS:Variables />
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Loop Foeach File Names\Check File Availability On FTP Server"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Check File Availability On OJK FTP Server"
+                  DTS:DTSID="{48FF9761-9041-41B7-9863-A006F81F2004}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Check File Availability On FTP Server"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="0">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                      SQLTask:SqlStatementSource="DECLARE @fileName Nvarchar(128)&#xA;DECLARE @command NVARCHAR(255)&#xA;DECLARE @rawFiles TABLE (ID int IDENTITY, FileProp NVARCHAR(500))&#xA;&#xA;SET @fileName = ?&#xA;SET @command = 'cd.. &amp;&amp; &quot;D:\Bahan Kuliah\Kerja Praktik\OJK\FtpOjkDirList.bat&quot; ' + 'DATA_EXPORT_IMPORT/IMPORT/BEI/Done ' + @fileName + ' .done' &#xA;&#xA;INSERT INTO @rawFiles EXECUTE xp_cmdshell @command&#xA;delete from @rawFiles where FileProp like 'dir%' or FileProp like 'No file%'&#xA;&#xA;SELECT COUNT(FileProp) from @rawFiles &#xA;where FileProp like (SELECT '%' + @fileName + '.rar.ready.done')"
+                      SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ResultBinding
+                        SQLTask:ResultName="0"
+                        SQLTask:DtsVariableName="User::countRow" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::fileName"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="128" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Loop Foeach File Names\Insert Into History Monitoring Log"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Update Monitoring Log Detail"
+                  DTS:DTSID="{DE542915-9F0B-462E-B0E5-35CC67ABEB42}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Insert Into History Monitoring Log"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="0">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                      SQLTask:SqlStatementSource="insert into dbo.HistoryMonitoringLog (MonitoringLogDate, FileName, FileExtension, FileModifiedDate, StatusId, ETLRunDatetime)&#xA;select GETDATE(), FileName, FileExtension, FileModifiedDate, StatusId, ETLRunDatetime &#xA;from dbo.MonitoringLogDetail&#xA;where MonitoringLogId = ? and FileName = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::monitoringLogId"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="131"
+                        SQLTask:ParameterSize="18" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="User::fileName"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="128" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Loop Foeach File Names\Update Monitoring Log Detail"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Update Monitoring Log Detail"
+                  DTS:DTSID="{A44CAA64-E9B1-4C8A-BD6F-AF78CC9E50A1}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Update Monitoring Log Detail"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="0">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                      SQLTask:SqlStatementSource="DECLARE @fileName NVARCHAR(128)&#xA;DECLARE @monitoringLogId INT&#xA;&#xA;SET @monitoringLogId = ?&#xA;SET @fileName = ?&#xA;&#xA;UPDATE dbo.MonitoringLogDetail &#xA;SET FileExtension = 'rar.ready.done'&#xA;   ,StatusId = 3&#xA;   ,ETLRunDatetime = GETDATE()&#xA;where MonitoringLogId = @monitoringLogId and FileName = @fileName" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::monitoringLogId"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="131"
+                        SQLTask:ParameterSize="18" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="User::fileName"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="128" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+              <DTS:PrecedenceConstraints>
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Loop Foeach File Names.PrecedenceConstraints[Constraint]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{FF2A9B1D-9B00-489D-A196-F6FA3F830F9E}"
+                  DTS:EvalOp="1"
+                  DTS:Expression="@[User::countRow] &gt;0"
+                  DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Loop Foeach File Names\Check File Availability On FTP Server"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Constraint"
+                  DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Loop Foeach File Names\Insert Into History Monitoring Log" />
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Loop Foeach File Names.PrecedenceConstraints[Constraint 1]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{84BCE10A-1479-4908-AA36-42BA0DA8CE98}"
+                  DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Loop Foeach File Names\Insert Into History Monitoring Log"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Constraint 1"
+                  DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Loop Foeach File Names\Update Monitoring Log Detail" />
+              </DTS:PrecedenceConstraints>
+              <DTS:ForEachVariableMappings>
+                <DTS:ForEachVariableMapping
+                  DTS:CreationName=""
+                  DTS:DTSID="{9604FAFD-35AA-4BCD-A984-6DAD34A84E96}"
+                  DTS:ObjectName="{B2BC560D-C339-49EB-8A5C-7A9062AA48DC}"
+                  DTS:ValueIndex="0"
+                  DTS:VariableName="User::fileName" />
+              </DTS:ForEachVariableMappings>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Retrieve FileNames With Extension (rar_ready_transfer)"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Retrieve FileNames With Extension (rar_ready_transfer)"
+              DTS:DTSID="{DE0A06C2-1052-42BB-BA9D-FB38391CA2E6}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Retrieve FileNames With Extension (rar_ready_transfer)"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                  SQLTask:SqlStatementSource="select FileName from dbo.MonitoringLogDetail &#xA;where MonitoringLogId = ? and FileExtension = 'rar.ready.transfer'"
+                  SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::fileNames" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::monitoringLogId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="131"
+                    SQLTask:ParameterSize="18" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done).PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{BDBDB1DD-EA2B-40AA-BAEA-539245A03913}"
+              DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Retrieve FileNames With Extension (rar_ready_transfer)"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Loop Foeach File Names" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done).PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{3316AB14-6C26-464B-9E22-B2C77DAB580D}"
+              DTS:EvalOp="1"
+              DTS:Expression="@[User::countRow] &gt;0"
+              DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Check Availability FileNames With Extension (rar_ready_transfer) On Table Monitoring Detail"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Retrieve FileNames With Extension (rar_ready_transfer)" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:Disabled="True"
+          DTS:DTSID="{02CD96D1-D07E-45E7-A400-9B3EC1439336}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FTP OJK (Ready_Done_Moved)">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{D4228725-F53F-4F9E-A66C-BD6B9B086D6F}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="fileNames">
+              <DTS:VariableValue
+                DTS:DataSubType="ManagedSerializable"
+                DTS:DataType="13">
+                <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+                  <SOAP-ENV:Body>
+                    <xsd:anyType
+                      id="ref-1"></xsd:anyType>
+                  </SOAP-ENV:Body>
+                </SOAP-ENV:Envelope>
+              </DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Check Availability FileNames With Extension (rar_ready_done) On Table Monitoring Detail"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Check Availability FileNames With Extension (rar_ready_done)"
+              DTS:DTSID="{D6C220FE-309A-4BAF-8E18-E273A6CF20D8}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Check Availability FileNames With Extension (rar_ready_done) On Table Monitoring Detail"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                  SQLTask:SqlStatementSource="select count(FileName) from dbo.MonitoringLogDetail &#xA;where MonitoringLogId = ? and FileExtension = 'rar.ready.done'"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::countRow" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::monitoringLogId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="131"
+                    SQLTask:ParameterSize="18" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Loop Foeach File Names"
+              DTS:CreationName="STOCK:FOREACHLOOP"
+              DTS:Description="Loop Foeach File Names On  Table Monitoring Log Detail With Extension (rar.ready)"
+              DTS:DTSID="{2D2BF782-4D8C-4C8F-BE11-B1525F4C788B}"
+              DTS:ExecutableType="STOCK:FOREACHLOOP"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Loop Foeach File Names">
+              <DTS:ForEachEnumerator
+                DTS:CreationName="Microsoft.ForEachADOEnumerator"
+                DTS:DTSID="{60D20870-320C-455A-8A9B-195651FF3FE7}"
+                DTS:ObjectName="{C220FD1F-B889-44A4-AC81-ED9DB81D0102}">
+                <DTS:ObjectData>
+                  <FEEADO
+                    EnumType="EnumerateRowsInFirstTable"
+                    VarName="User::fileNames" />
+                </DTS:ObjectData>
+              </DTS:ForEachEnumerator>
+              <DTS:Variables />
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Loop Foeach File Names\Check File Availability On FTP Server"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Check File Availability On OJK FTP Server"
+                  DTS:DTSID="{6274000F-33E0-4317-BD21-666389431D06}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Check File Availability On FTP Server"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="0">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                      SQLTask:SqlStatementSource="DECLARE @fileName Nvarchar(128)&#xA;DECLARE @command NVARCHAR(255)&#xA;DECLARE @rawFiles TABLE (ID int IDENTITY, FileProp NVARCHAR(500))&#xA;&#xA;SET @fileName = ?&#xA;SET @command = 'cd.. &amp;&amp; &quot;D:\Bahan Kuliah\Kerja Praktik\OJK\FtpOjkDirList.bat&quot; ' + 'DATA_EXPORT_IMPORT/IMPORT/BEI/Done ' + @fileName + ' .done.moved' &#xA;&#xA;INSERT INTO @rawFiles EXECUTE xp_cmdshell @command&#xA;delete from @rawFiles where FileProp like 'dir%' or FileProp like 'No file%'&#xA;&#xA;SELECT COUNT(FileProp) from @rawFiles &#xA;where FileProp like (SELECT '%' + @fileName + '.rar.ready.done.moved')"
+                      SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ResultBinding
+                        SQLTask:ResultName="0"
+                        SQLTask:DtsVariableName="User::countRow" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::fileName"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="128" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Loop Foeach File Names\Insert Into History Monitoring Log"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Update Monitoring Log Detail"
+                  DTS:DTSID="{B347A521-A9EC-41B2-8237-FE463B509AA4}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Insert Into History Monitoring Log"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="0">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                      SQLTask:SqlStatementSource="insert into dbo.HistoryMonitoringLog (MonitoringLogDate, FileName, FileExtension, FileModifiedDate, StatusId, ETLRunDatetime)&#xA;select GETDATE(), FileName, FileExtension, FileModifiedDate, StatusId, ETLRunDatetime &#xA;from dbo.MonitoringLogDetail&#xA;where MonitoringLogId = ? and FileName = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::monitoringLogId"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="131"
+                        SQLTask:ParameterSize="18" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="User::fileName"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="128" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Loop Foeach File Names\Update Monitoring Log Detail"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Update Monitoring Log Detail"
+                  DTS:DTSID="{F1009BAB-0FAD-4ACD-B5BB-999B8505ECAA}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Update Monitoring Log Detail"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="0">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                      SQLTask:SqlStatementSource="DECLARE @fileName NVARCHAR(128)&#xA;DECLARE @monitoringLogId INT&#xA;&#xA;SET @monitoringLogId = ?&#xA;SET @fileName = ?&#xA;&#xA;UPDATE dbo.MonitoringLogDetail &#xA;SET FileExtension = 'rar.ready.done.moved'&#xA;   ,StatusId = 4&#xA;   ,ETLRunDatetime = GETDATE()&#xA;where MonitoringLogId = @monitoringLogId and FileName = @fileName" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::monitoringLogId"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="131"
+                        SQLTask:ParameterSize="18" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="User::fileName"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="128" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+              <DTS:PrecedenceConstraints>
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Loop Foeach File Names.PrecedenceConstraints[Constraint]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{0CA740AC-98C5-4F09-ABF6-232D9F857404}"
+                  DTS:EvalOp="1"
+                  DTS:Expression="@[User::countRow] &gt;0"
+                  DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Loop Foeach File Names\Check File Availability On FTP Server"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Constraint"
+                  DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Loop Foeach File Names\Insert Into History Monitoring Log" />
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Loop Foeach File Names.PrecedenceConstraints[Constraint 1]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{89F2CC22-7312-4513-B436-D76057CA7F52}"
+                  DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Loop Foeach File Names\Insert Into History Monitoring Log"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Constraint 1"
+                  DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Loop Foeach File Names\Update Monitoring Log Detail" />
+              </DTS:PrecedenceConstraints>
+              <DTS:ForEachVariableMappings>
+                <DTS:ForEachVariableMapping
+                  DTS:CreationName=""
+                  DTS:DTSID="{2A426120-5987-4629-BFB9-06E2F6E782FA}"
+                  DTS:ObjectName="{B2BC560D-C339-49EB-8A5C-7A9062AA48DC}"
+                  DTS:ValueIndex="0"
+                  DTS:VariableName="User::fileName" />
+              </DTS:ForEachVariableMappings>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Retrieve FileNames With Extension (rar_ready_done)"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Retrieve FileNames With Extension (rar_ready_done)"
+              DTS:DTSID="{32AE5798-29E2-4E3B-AF53-F4848F5E10BD}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Retrieve FileNames With Extension (rar_ready_done)"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                  SQLTask:SqlStatementSource="select FileName from dbo.MonitoringLogDetail &#xA;where MonitoringLogId = ? and FileExtension = 'rar.ready.done'"
+                  SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::fileNames" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::monitoringLogId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="131"
+                    SQLTask:ParameterSize="18" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved).PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{0FE63B19-FFDF-411D-9D30-453543D12C40}"
+              DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Retrieve FileNames With Extension (rar_ready_done)"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Loop Foeach File Names" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved).PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{813177D6-7695-44C3-A2CA-349772FB0EF4}"
+              DTS:EvalOp="1"
+              DTS:Expression="@[User::countRow] &gt;0"
+              DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Check Availability FileNames With Extension (rar_ready_done) On Table Monitoring Detail"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Retrieve FileNames With Extension (rar_ready_done)" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:Disabled="True"
+          DTS:DTSID="{F5689ACA-9A01-4384-B9D5-7321F9C7CF30}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FTP OJK (Ready_Done_Processed)">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{A1DCBFB2-DA11-4960-B237-CF269C71B621}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="fileNames">
+              <DTS:VariableValue
+                DTS:DataSubType="ManagedSerializable"
+                DTS:DataType="13">
+                <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+                  <SOAP-ENV:Body>
+                    <xsd:anyType
+                      id="ref-1"></xsd:anyType>
+                  </SOAP-ENV:Body>
+                </SOAP-ENV:Envelope>
+              </DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Check Availability FileNames With Extension (rar_ready_done_moved) On Table Monitoring Detail"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Check Availability FileNames With Extension (rar_ready_done_moved)"
+              DTS:DTSID="{1CD8187E-D5B9-4DEF-B749-295F95581E00}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Check Availability FileNames With Extension (rar_ready_done_moved) On Table Monitoring Detail"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                  SQLTask:SqlStatementSource="select count(FileName) from dbo.MonitoringLogDetail &#xA;where MonitoringLogId = ? and FileExtension = 'rar.ready.done.moved'"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::countRow" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::monitoringLogId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="131"
+                    SQLTask:ParameterSize="18" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Loop Foeach File Names"
+              DTS:CreationName="STOCK:FOREACHLOOP"
+              DTS:Description="Loop Foeach File Names On  Table Monitoring Log Detail With Extension (rar.ready)"
+              DTS:DTSID="{5A4E9DD7-08CC-4D0F-B880-DEA34486919F}"
+              DTS:ExecutableType="STOCK:FOREACHLOOP"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Loop Foeach File Names">
+              <DTS:ForEachEnumerator
+                DTS:CreationName="Microsoft.ForEachADOEnumerator"
+                DTS:DTSID="{CBB5880F-A8EA-4731-B857-E1EE2B758A22}"
+                DTS:ObjectName="{C220FD1F-B889-44A4-AC81-ED9DB81D0102}">
+                <DTS:ObjectData>
+                  <FEEADO
+                    EnumType="EnumerateRowsInFirstTable"
+                    VarName="User::fileNames" />
+                </DTS:ObjectData>
+              </DTS:ForEachEnumerator>
+              <DTS:Variables />
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Loop Foeach File Names\Check File Availability On FTP Server"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Check File Availability On OJK FTP Server"
+                  DTS:DTSID="{44F4CBEC-E1FB-499B-BC1E-CEAAA77A4001}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Check File Availability On FTP Server"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="0">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                      SQLTask:SqlStatementSource="DECLARE @fileName Nvarchar(128)&#xA;DECLARE @command NVARCHAR(255)&#xA;DECLARE @rawFiles TABLE (ID int IDENTITY, FileProp NVARCHAR(500))&#xA;&#xA;SET @fileName = ?&#xA;SET @command = 'dir C:\DATA_EXPORT_IMPORT\IMPORT\BEI\Done\' + @fileName + '.rar.ready.processed' &#xA;&#xA;INSERT INTO @rawFiles EXECUTE xp_cmdshell @command&#xA;delete from @rawFiles where FileProp like 'dir%' or FileProp like 'No file%'&#xA;&#xA;SELECT COUNT(FileProp) from @rawFiles &#xA;where FileProp like (SELECT '%' + @fileName + '.rar.ready.processed')"
+                      SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ResultBinding
+                        SQLTask:ResultName="0"
+                        SQLTask:DtsVariableName="User::countRow" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::fileName"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="128" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Loop Foeach File Names\Insert Into History Monitoring Log"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Update Monitoring Log Detail"
+                  DTS:DTSID="{E5B465F2-2B3C-454F-AE08-A2F68A3CDE2C}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Insert Into History Monitoring Log"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="0">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                      SQLTask:SqlStatementSource="insert into dbo.HistoryMonitoringLog (MonitoringLogDate, FileName, FileExtension, FileModifiedDate, StatusId, ETLRunDatetime)&#xA;select GETDATE(), FileName, FileExtension, FileModifiedDate, StatusId, ETLRunDatetime &#xA;from dbo.MonitoringLogDetail&#xA;where MonitoringLogId = ? and FileName = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::monitoringLogId"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="131"
+                        SQLTask:ParameterSize="18" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="User::fileName"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="128" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Loop Foeach File Names\Update Monitoring Log Detail"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Update Monitoring Log Detail"
+                  DTS:DTSID="{43BD2FBE-DCB5-4D82-939E-7EE17DE772E3}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Update Monitoring Log Detail"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="0">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                      SQLTask:SqlStatementSource="DECLARE @fileName NVARCHAR(128)&#xA;DECLARE @monitoringLogId INT&#xA;&#xA;SET @monitoringLogId = ?&#xA;SET @fileName = ?&#xA;&#xA;UPDATE dbo.MonitoringLogDetail &#xA;SET FileExtension = 'rar.ready.done.processed'&#xA;   ,StatusId = 5&#xA;   ,ETLRunDatetime = GETDATE()&#xA;where MonitoringLogId = @monitoringLogId and FileName = @fileName" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::monitoringLogId"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="131"
+                        SQLTask:ParameterSize="18" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="User::fileName"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="128" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+              <DTS:PrecedenceConstraints>
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Loop Foeach File Names.PrecedenceConstraints[Constraint]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{E7CE37E3-1B5E-46ED-A43A-0FAE517E061D}"
+                  DTS:EvalOp="1"
+                  DTS:Expression="@[User::countRow] &gt;0"
+                  DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Loop Foeach File Names\Check File Availability On FTP Server"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Constraint"
+                  DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Loop Foeach File Names\Insert Into History Monitoring Log" />
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Loop Foeach File Names.PrecedenceConstraints[Constraint 1]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{EBFB5E41-B124-4331-8A69-12E861FAE8DA}"
+                  DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Loop Foeach File Names\Insert Into History Monitoring Log"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Constraint 1"
+                  DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Loop Foeach File Names\Update Monitoring Log Detail" />
+              </DTS:PrecedenceConstraints>
+              <DTS:ForEachVariableMappings>
+                <DTS:ForEachVariableMapping
+                  DTS:CreationName=""
+                  DTS:DTSID="{ED6E7B46-FBA8-4B15-B4B0-3ACE890EE65C}"
+                  DTS:ObjectName="{B2BC560D-C339-49EB-8A5C-7A9062AA48DC}"
+                  DTS:ValueIndex="0"
+                  DTS:VariableName="User::fileName" />
+              </DTS:ForEachVariableMappings>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Retrieve FileNames With Extension (rar_ready_done_moved)"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Retrieve FileNames With Extension (rar_ready_done_moved)"
+              DTS:DTSID="{0BE99581-A507-49E2-97AD-3D193A5AD2E7}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Retrieve FileNames With Extension (rar_ready_done_moved)"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                  SQLTask:SqlStatementSource="select FileName from dbo.MonitoringLogDetail &#xA;where MonitoringLogId = ? and FileExtension = 'rar.ready.done.moved'"
+                  SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::fileNames" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::monitoringLogId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="131"
+                    SQLTask:ParameterSize="18" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed).PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{0699882E-C490-47BD-948B-D8ECB9EA65FC}"
+              DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Retrieve FileNames With Extension (rar_ready_done_moved)"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Loop Foeach File Names" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed).PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{A5FE9F96-A931-4C23-BA8B-9EC46E4D0C32}"
+              DTS:EvalOp="1"
+              DTS:Expression="@[User::countRow] &gt;0"
+              DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Check Availability FileNames With Extension (rar_ready_done_moved) On Table Monitoring Detail"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Retrieve FileNames With Extension (rar_ready_done_moved)" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:Disabled="True"
+          DTS:DTSID="{67A0F8B2-E70E-49E5-AB8B-94B5F0AD8849}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FTP OJK (Ready_Transfer)">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{F11CA97B-D0E0-46F3-AD0E-BF839E2FADD5}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="fileNames">
+              <DTS:VariableValue
+                DTS:DataSubType="ManagedSerializable"
+                DTS:DataType="13">
+                <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+                  <SOAP-ENV:Body>
+                    <xsd:anyType
+                      id="ref-1"></xsd:anyType>
+                  </SOAP-ENV:Body>
+                </SOAP-ENV:Envelope>
+              </DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Check Filenames Availability on MonitoringLogDetail Based On MonitoringLogId and StatusId-1"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Check Filenames Availability on MonitoringLogDetail Based On MonitoringLogId and StatusId-1"
+              DTS:DTSID="{BF2E5F99-2637-449B-9B68-DE99EDF74733}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Check Filenames Availability on MonitoringLogDetail Based On MonitoringLogId and StatusId-1"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                  SQLTask:SqlStatementSource="select count(FileName) from dbo.MonitoringLogDetail &#xA;where MonitoringLogId = ? and FileExtension = 'rar.ready'"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::countRow" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::monitoringLogId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="131"
+                    SQLTask:ParameterSize="18" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Loop Foeach File Names"
+              DTS:CreationName="STOCK:FOREACHLOOP"
+              DTS:Description="Loop Foeach File Names On  Table Monitoring Log Detail With Extension (rar.ready)"
+              DTS:DTSID="{35EB6D22-A55F-4DA6-9E44-4D969BFB00C9}"
+              DTS:ExecutableType="STOCK:FOREACHLOOP"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Loop Foeach File Names">
+              <DTS:ForEachEnumerator
+                DTS:CreationName="Microsoft.ForEachADOEnumerator"
+                DTS:DTSID="{C220FD1F-B889-44A4-AC81-ED9DB81D0102}"
+                DTS:ObjectName="{C220FD1F-B889-44A4-AC81-ED9DB81D0102}">
+                <DTS:ObjectData>
+                  <FEEADO
+                    EnumType="EnumerateRowsInFirstTable"
+                    VarName="User::fileNames" />
+                </DTS:ObjectData>
+              </DTS:ForEachEnumerator>
+              <DTS:Variables />
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Loop Foeach File Names\Check File Availability On FTP Server"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Check File Availability On OJK FTP Server"
+                  DTS:DTSID="{2E524766-3143-47E6-8A9D-660F41E465BA}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Check File Availability On FTP Server"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="0">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                      SQLTask:SqlStatementSource="DECLARE @fileName Nvarchar(128)&#xA;DECLARE @command NVARCHAR(255)&#xA;DECLARE @rawFiles TABLE (ID int IDENTITY, FileProp NVARCHAR(500))&#xA;&#xA;SET @fileName = ?&#xA;SET @command = 'cd.. &amp;&amp; &quot;D:\Bahan Kuliah\Kerja Praktik\OJK\FtpOjkDirList.bat&quot; ' + 'DATA_EXPORT_IMPORT/IMPORT/BEI ' + @fileName + ' .transfer' &#xA;&#xA;INSERT INTO @rawFiles EXECUTE xp_cmdshell @command&#xA;delete from @rawFiles where FileProp like 'dir%' or FileProp like 'No file%'&#xA;&#xA;SELECT COUNT(FileProp) from @rawFiles &#xA;where FileProp like (SELECT '%' + @fileName + '.rar.ready.transfer')"
+                      SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ResultBinding
+                        SQLTask:ResultName="0"
+                        SQLTask:DtsVariableName="User::countRow" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::fileName"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="128" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Loop Foeach File Names\Insert Into History Monitoring Log"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Update Monitoring Log Detail"
+                  DTS:DTSID="{C92D99D5-F77F-4E80-8FE5-411FB99E91F0}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Insert Into History Monitoring Log"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="0">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                      SQLTask:SqlStatementSource="DECLARE @fileName NVARCHAR(128)&#xA;&#xA;SET @fileName = ?&#xA;&#xA;INSERT INTO dbo.HistoryMonitoringLog (MonitoringLogDate, FileName, FileModifiedDatetime, StatusId, ETLRunDatetime)&#xA;SELECT GETDATE(), FileName, FileModifiedDatetime, StatusId, ETLRunDatetime &#xA;FROM dbo.MonitoringLogDetail&#xA;WHERE FileName = @fileName" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::monitoringLogId"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="131"
+                        SQLTask:ParameterSize="18" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="User::fileName"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="128" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Loop Foeach File Names\Update Monitoring Log Detail"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Update Monitoring Log Detail"
+                  DTS:DTSID="{38925777-E4EC-4B85-8A01-AD388C6C67C2}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Update Monitoring Log Detail"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="0">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                      SQLTask:SqlStatementSource="DECLARE @fileName NVARCHAR(128)&#xA;DECLARE @monitoringLogId INT&#xA;&#xA;SET @monitoringLogId = ?&#xA;SET @fileName = ?&#xA;&#xA;UPDATE dbo.MonitoringLogDetail &#xA;SET FileExtension = 'rar.ready.transfer'&#xA;   ,StatusId = 2&#xA;   ,ETLRunDatetime = GETDATE()&#xA;where MonitoringLogId = @monitoringLogId and FileName = @fileName" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::monitoringLogId"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="131"
+                        SQLTask:ParameterSize="18" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="User::fileName"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="128" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+              <DTS:PrecedenceConstraints>
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Loop Foeach File Names.PrecedenceConstraints[Constraint]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{7DDF7CE5-FB17-4F70-98D6-33A5BB7D8409}"
+                  DTS:EvalOp="1"
+                  DTS:Expression="@[User::countRow] &gt;0"
+                  DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Loop Foeach File Names\Check File Availability On FTP Server"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Constraint"
+                  DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Loop Foeach File Names\Insert Into History Monitoring Log" />
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Loop Foeach File Names.PrecedenceConstraints[Constraint 1]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{A1502355-F96A-4BAE-AD9F-CC36F055F75B}"
+                  DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Loop Foeach File Names\Insert Into History Monitoring Log"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Constraint 1"
+                  DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Loop Foeach File Names\Update Monitoring Log Detail" />
+              </DTS:PrecedenceConstraints>
+              <DTS:ForEachVariableMappings>
+                <DTS:ForEachVariableMapping
+                  DTS:CreationName=""
+                  DTS:DTSID="{B2BC560D-C339-49EB-8A5C-7A9062AA48DC}"
+                  DTS:ObjectName="{B2BC560D-C339-49EB-8A5C-7A9062AA48DC}"
+                  DTS:ValueIndex="0"
+                  DTS:VariableName="User::fileName" />
+              </DTS:ForEachVariableMappings>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Retrieve FileNames With Extension (rar_ready)"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Retrieve FileNames With Extension (rar_ready)"
+              DTS:DTSID="{EB336DC0-8285-4B68-B758-6F71DEA4F188}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Retrieve FileNames With Extension (rar_ready)"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                  SQLTask:SqlStatementSource="select FileName from dbo.MonitoringLogDetail &#xA;where MonitoringLogId = ? and FileExtension = 'rar.ready'"
+                  SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::fileNames" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::monitoringLogId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="131"
+                    SQLTask:ParameterSize="18" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer).PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{B08D23B7-C068-4AF1-B34A-87DC06FAB4C5}"
+              DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Retrieve FileNames With Extension (rar_ready)"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Loop Foeach File Names" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer).PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{1476BE66-24BF-48D1-9315-80CADBA0A8D9}"
+              DTS:EvalOp="1"
+              DTS:Expression="@[User::countRow] &gt;0"
+              DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Check Filenames Availability on MonitoringLogDetail Based On MonitoringLogId and StatusId-1"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Retrieve FileNames With Extension (rar_ready)" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Loop Foreach Monitoring Configuration Id"
+          DTS:DTSID="{D495031E-50FC-4705-9DD7-DBBE7C27A2BA}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Loop Foreach Monitoring Configuration Id">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{B0CC2E89-60B1-421E-B762-B234F9025C09}"
+            DTS:ObjectName="{B0CC2E89-60B1-421E-B762-B234F9025C09}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::monitoringConfigurationIds" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{05B60D2C-9131-43A1-9295-B68821E8C375}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="stateId">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1"
+              DTS:CreationName="STOCK:SEQUENCE"
+              DTS:Description="Sequence Container"
+              DTS:DTSID="{11DD5933-4197-49C1-80BA-F5FB15E8E2D5}"
+              DTS:ExecutableType="STOCK:SEQUENCE"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Process If stateId equal 1">
+              <DTS:Variables />
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1\Check The Data That Is Ready To Be Transferred"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Check The Data That Is Ready To Be Transferred"
+                  DTS:DTSID="{b5ad0fa6-666d-47f7-bac5-15fcecad5e88}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Check The Data That Is Ready To Be Transferred"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="2">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                      SQLTask:SqlStatementSource="/* Declare Local Variables */&#xA;DECLARE @fileTemplateId INT&#xA;DECLARE @monitoringConfigurationId INT&#xA;DECLARE @fileTemplateName NVARCHAR(64)&#xA;DECLARE @filePath NVARCHAR(255)&#xA;DECLARE @filePatternExtension NVARCHAR(128)&#xA;DECLARE @batchFilePath NVARCHAR(128) &#xA;DECLARE @extLength INT&#xA;DECLARE @countRow INT&#xA;DECLARE @command NVARCHAR(255)&#xA;DECLARE @rawFiles TABLE (ID int IDENTITY, FileProp NVARCHAR(500))&#xA;&#xA;/* Passing Variables SSIS Into Query &#xA; * Input Variables In SSIS : &#xA; * 1. fileId&#xA; * 2. monitoringConfigurationId&#xA; */&#xA;SET @fileTemplateId = ?&#xA;SET @monitoringConfigurationId = ?&#xA;&#xA;/* Retrieve Batch File Path Name In Table MasterBatchFile &#xA;   INNER JOIN Monitoring Configuration Based On @monitoringConfigurationId */&#xA;SET @batchFilePath = (SELECT mbf.PathName From MasterBatchFile as mbf&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  INNER JOIN MonitoringConfiguration as mc ON mbf.Id = mc.BatchFileId&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  WHERE mc.Id = @monitoringConfigurationId)&#xA;&#xA;/* Retrieve File Path Name In Table MasterPath &#xA;   INNER JOIN Monitoring Configuration Based On @monitoringConfigurationId */&#xA;SET @filePath = (SELECT mp.Name From MasterPath as mp&#xA;&#x9;&#x9;&#x9;&#x9; INNER JOIN MonitoringConfiguration as mc ON mp.Id = mc.PathId&#xA;&#x9;&#x9;&#x9;&#x9; WHERE mc.Id = @monitoringConfigurationId)&#xA;&#xA;/* Retrieve File Pattern Extension In Table MasterPath INNER JOIN MasterStatus &#xA;   INNER JOIN Monitoring Configuration Based On @monitoringConfigurationId */&#xA;SET @filePatternExtension = (SELECT mpe.Name FROM MasterPatternExtension AS mpe&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; INNER JOIN MasterStatus AS ms ON ms.PatternExtensionId = mpe.Id&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; INNER JOIN MonitoringConfiguration as mc ON mc.StatusId = ms.Id&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; WHERE mc.Id = @monitoringConfigurationId)&#xA;&#xA;/* Retrieve File Template Name Based On @fileTemplateId */&#xA;SET @fileTemplateName = (SELECT Name From MasterFile where Id = @fileTemplateId)&#xA;&#xA;/* SET The Command For The CMD Shell */&#xA;SET @command = 'cd.. &amp;&amp; &quot;' + @batchFilePath + '&quot; ' + @filePath + ' ' + @fileTemplateName + ' ' + @filePatternExtension &#xA;&#xA;--SELECT @batchFilePath as BatchFilePath, @filePath as FilePath, @filePatternExtension as FileExtension, @fileTemplateName as FileName, @command as CMDShellCommand&#xA;&#xA;/* INSERT The Result From CMD Shell Into Table @rawFiles */&#xA;INSERT INTO @rawFiles EXECUTE xp_cmdshell @command&#xA;DELETE FROM @rawFiles WHERE FileProp LIKE 'dir%' OR FileProp LIKE 'No file%'&#xA;--SELECT FileProp FROM @rawFiles &#xA;--WHERE FileProp LIKE (SELECT '%' + @fileTemplateName + @filePatternExtension)&#xA;&#xA;/* Count the Number of Retrieved Files */&#xA;SET @countRow = (SELECT COUNT(FileProp) FROM @rawFiles &#xA;                 WHERE FileProp LIKE (SELECT '%' + @fileTemplateName + @filePatternExtension))&#xA;&#xA;IF @countRow &gt; 0&#xA;&#x9;TRUNCATE TABLE staging.RawFiles&#xA;&#x9;INSERT INTO [FtpMonitoringDB].[staging].[RawFiles] (FileName, FileModifiedDatetime)&#xA;&#x9;SELECT left(SUBSTRING(FileProp, 65, 250), CHARINDEX('.', SUBSTRING(FileProp, 65, 250)) - 1)  as FileName&#xA;&#x9;&#x9;  ,CAST(SUBSTRING(FileProp, 44, 20) as datetime) as FileModifiedDatetime&#xA;&#x9;FROM @rawFiles WHERE FileProp LIKE (SELECT '%' + @fileTemplateName + @filePatternExtension)&#xA;&#xA;/* Return Value To SSIS&#xA; * Output Variable Name In SSIS : countRow&#xA; */&#xA;select @countRow"
+                      SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ResultBinding
+                        SQLTask:ResultName="0"
+                        SQLTask:DtsVariableName="User::countRow" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::fileId"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="131"
+                        SQLTask:ParameterSize="18" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="User::monitoringConfigurationId"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="131"
+                        SQLTask:ParameterSize="18" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1\Insert File Properties On Table Staging RawFiles Into MonitoringLogDetail"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Insert File Properties On Table Staging RawFiles Into MonitoringLogDetail"
+                  DTS:DTSID="{f618987d-7ad1-4089-aaa8-f14e7de564ab}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Insert File Properties On Table Staging RawFiles Into MonitoringLogDetail"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="2">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                      SQLTask:SqlStatementSource="DECLARE @monitoringLogId INT&#xA;DECLARE @monitoringConfigurationId INT&#xA;DECLARE @statusId INT&#xA;&#xA;/* Input Variables From SSIS&#xA; * Variables Name :&#xA; * 1. monitoringLogId&#xA; * 2. monitoringConfigurationId&#xA; */&#xA;SET @monitoringLogId = ?&#xA;SET @monitoringConfigurationId = ?&#xA;&#xA;/* Retrieve StatusId Based On Monitoring Configuration Id */&#xA;SET @statusId = (SELECT StatusId FROM MonitoringConfiguration &#xA;                 WHERE Id = @monitoringConfigurationId)&#xA;&#xA;/* Insert New File Properties From Table staging.RawFiles Into MonitoringLogDetail */&#xA;INSERT INTO dbo.MonitoringLogDetail (MonitoringLogId, FileName, FileModifiedDatetime, StatusId, ETLRunDatetime)&#xA;SELECT @monitoringLogId, FileName, FileModifiedDatetime, @statusId, GETDATE()&#xA;FROM staging.RawFiles" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::monitoringLogId"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="131"
+                        SQLTask:ParameterSize="18" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="User::monitoringConfigurationId"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="131"
+                        SQLTask:ParameterSize="18" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1\Update Status On MonitoringLog Table"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Update Status On MonitoringLog Table"
+                  DTS:DTSID="{24f837c2-75e2-4080-9ebd-fd6a1dd7f7c6}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Update Status On MonitoringLog Table"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="2">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                      SQLTask:SqlStatementSource="/* Update Status On MonitoringLogTable Where MonitoringLogId Equal Input&#xA; * Input Variable Name In SSIS :&#xA; * 1. monitoringLogId&#xA; */&#xA;UPDATE MonitoringLog SET Status = 1&#xA;WHERE Id = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::monitoringLogId"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="131"
+                        SQLTask:ParameterSize="18" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+              <DTS:PrecedenceConstraints>
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1.PrecedenceConstraints[Constraint]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{EE805ADD-52B3-49C4-AC99-AA35EDD84268}"
+                  DTS:EvalOp="1"
+                  DTS:Expression="@[User::countRow] &gt; 0"
+                  DTS:From="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1\Check The Data That Is Ready To Be Transferred"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Constraint"
+                  DTS:To="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1\Update Status On MonitoringLog Table" />
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1.PrecedenceConstraints[Constraint 1]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{6344AED8-2FFE-42AE-A2CC-CD01D60F5552}"
+                  DTS:From="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1\Update Status On MonitoringLog Table"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Constraint 1"
+                  DTS:To="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1\Insert File Properties On Table Staging RawFiles Into MonitoringLogDetail" />
+              </DTS:PrecedenceConstraints>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1"
+              DTS:CreationName="STOCK:SEQUENCE"
+              DTS:Description="Sequence Container"
+              DTS:DTSID="{41159d4a-667f-4dee-9200-d401167dbf8c}"
+              DTS:ExecutableType="STOCK:SEQUENCE"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Process If stateId greater than 1">
+              <DTS:Variables />
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Check Number Of Filenames on MonitoringLogDetail Based On MonitoringLogId and (StatusId - 1)"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Check Number Of Filenames on MonitoringLogDetail Based On MonitoringLogId and (StatusId - 1)"
+                  DTS:DTSID="{52d0a913-0085-43f1-a131-d20c9fef216a}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Check Number Of Filenames on MonitoringLogDetail Based On MonitoringLogId and (StatusId - 1)"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="1">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                      SQLTask:SqlStatementSource="DECLARE @monitoringLogId INT&#xA;DECLARE @monitoringConfigurationId Int&#xA;DECLARE @statusId INT&#xA;&#xA;SET @monitoringLogId = ?&#xA;SET @monitoringConfigurationId = ?&#xA;SET @statusId = (SELECT StatusId FROM MonitoringConfiguration&#xA;                 WHERE Id = @monitoringConfigurationId)&#xA;&#xA;SELECT COUNT(FileName) from dbo.MonitoringLogDetail &#xA;where MonitoringLogId = @monitoringLogId and StatusId = @statusId"
+                      SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ResultBinding
+                        SQLTask:ResultName="0"
+                        SQLTask:DtsVariableName="User::countRow" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::monitoringLogId"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="131"
+                        SQLTask:ParameterSize="18" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="User::monitoringConfigurationIdBefore"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="131"
+                        SQLTask:ParameterSize="18" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Foreach Loop FileNames"
+                  DTS:CreationName="STOCK:FOREACHLOOP"
+                  DTS:Description="Foreach Loop FileNames"
+                  DTS:DTSID="{CA268AC7-86CD-4FAD-BA8E-F8F1F2DF2BAC}"
+                  DTS:ExecutableType="STOCK:FOREACHLOOP"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Foreach Loop FileNames">
+                  <DTS:ForEachEnumerator
+                    DTS:CreationName="Microsoft.ForEachADOEnumerator"
+                    DTS:DTSID="{56E23ED9-6549-429A-BEF9-6ACF10C4FE05}"
+                    DTS:ObjectName="{56E23ED9-6549-429A-BEF9-6ACF10C4FE05}">
+                    <DTS:ObjectData>
+                      <FEEADO
+                        EnumType="EnumerateRowsInFirstTable"
+                        VarName="User::fileNames" />
+                    </DTS:ObjectData>
+                  </DTS:ForEachEnumerator>
+                  <DTS:Variables />
+                  <DTS:Executables>
+                    <DTS:Executable
+                      DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Foreach Loop FileNames\Check File Availability On FTP Server"
+                      DTS:CreationName="Microsoft.ExecuteSQLTask"
+                      DTS:Description="Check File Availability On FTP Server"
+                      DTS:DTSID="{38f6f0e7-f435-4935-9bea-79734d42bd81}"
+                      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                      DTS:LocaleID="-1"
+                      DTS:ObjectName="Check File Availability On FTP Server"
+                      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                      DTS:ThreadHint="1">
+                      <DTS:Variables />
+                      <DTS:ObjectData>
+                        <SQLTask:SqlTaskData
+                          SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                          SQLTask:SqlStatementSource="DECLARE @monitoringConfigurationId INT&#xA;DECLARE @fileName NVARCHAR(128)&#xA;DECLARE @batchFilePath NVARCHAR(128)&#xA;DECLARE @filePath NVARCHAR(128)&#xA;DECLARE @filePatternExtension NVARCHAR(128)&#xA;DECLARE @newFileModifiedDatetime datetime&#xA;DECLARE @countRow INT&#xA;DECLARE @command NVARCHAR(255)&#xA;DECLARE @rawFiles TABLE (ID int IDENTITY, FileProp NVARCHAR(500))&#xA;&#xA;/* Passing Variables SSIS Into Query &#xA; * Input Variables In SSIS : &#xA; * 1. fileName&#xA; * 2. monitoringConfigurationId&#xA; */&#xA;SET @fileName = ?&#xA;SET @monitoringConfigurationId = ?&#xA;&#xA;/* Retrieve Batch File Path Name In Table MasterBatchFile &#xA;   INNER JOIN Monitoring Configuration Based On @monitoringConfigurationId */&#xA;SET @batchFilePath = (SELECT mbf.PathName From MasterBatchFile as mbf&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  INNER JOIN MonitoringConfiguration as mc ON mbf.Id = mc.BatchFileId&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  WHERE mc.Id = @monitoringConfigurationId)&#xA;&#xA;/* Retrieve File Path Name In Table MasterPath &#xA;   INNER JOIN Monitoring Configuration Based On @monitoringConfigurationId */&#xA;SET @filePath = (SELECT mp.Name From MasterPath as mp&#xA;&#x9;&#x9;&#x9;&#x9; INNER JOIN MonitoringConfiguration as mc ON mp.Id = mc.PathId&#xA;&#x9;&#x9;&#x9;&#x9; WHERE mc.Id = @monitoringConfigurationId)&#xA;&#xA;/* Retrieve File Pattern Extension In Table MasterPath INNER JOIN MasterStatus &#xA;   INNER JOIN Monitoring Configuration Based On @monitoringConfigurationId */&#xA;SET @filePatternExtension = (SELECT mpe.Name FROM MasterPatternExtension AS mpe&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; INNER JOIN MasterStatus AS ms ON ms.PatternExtensionId = mpe.Id&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; INNER JOIN MonitoringConfiguration as mc ON mc.StatusId = ms.Id&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; WHERE mc.Id = @monitoringConfigurationId)&#xA;&#xA;/* SET The Command For The CMD Shell */&#xA;SET @command = 'cd.. &amp;&amp; &quot;' + @batchFilePath + '&quot; ' + @filePath + ' ' + @fileName + ' ' + @filePatternExtension &#xA;&#xA;INSERT INTO @rawFiles EXECUTE xp_cmdshell @command&#xA;DELETE FROM @rawFiles WHERE FileProp like 'dir%' or FileProp like 'No file%'&#xA;&#xA;SET @countRow = (SELECT COUNT(FileProp) from @rawFiles &#xA;&#x9;&#x9;&#x9;&#x9; where FileProp like (SELECT @fileName + @filePatternExtension))&#xA;&#xA;IF @countRow &gt; 0&#xA;&#x9;/* Retrieve New File Modified Datetime */&#xA;&#x9;SET @newFileModifiedDatetime = (SELECT CAST(SUBSTRING(FileProp, 44, 20) as datetime) as FileModifiedDatetime&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;    FROM @rawFiles &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHERE FileProp LIKE (SELECT @fileName + @filePatternExtension))&#xA;&#x9;&#xA;&#x9;/* Update FileModifiedDatetime On MonitoringLogDetail Table Based On FileName */&#xA;&#x9;UPDATE MonitoringLogDetail &#xA;&#x9;SET FileModifiedDatetime = @newFileModifiedDatetime&#xA;&#x9;WHERE FileName = @fileName&#xA;&#xA;SELECT @countRow"
+                          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                          <SQLTask:ResultBinding
+                            SQLTask:ResultName="0"
+                            SQLTask:DtsVariableName="User::countRow" />
+                          <SQLTask:ParameterBinding
+                            SQLTask:ParameterName="0"
+                            SQLTask:DtsVariableName="User::fileName"
+                            SQLTask:ParameterDirection="Input"
+                            SQLTask:DataType="130"
+                            SQLTask:ParameterSize="128" />
+                          <SQLTask:ParameterBinding
+                            SQLTask:ParameterName="1"
+                            SQLTask:DtsVariableName="User::monitoringConfigurationId"
+                            SQLTask:ParameterDirection="Input"
+                            SQLTask:DataType="131"
+                            SQLTask:ParameterSize="18" />
+                        </SQLTask:SqlTaskData>
+                      </DTS:ObjectData>
+                    </DTS:Executable>
+                    <DTS:Executable
+                      DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Foreach Loop FileNames\Insert Into History Monitoring Log"
+                      DTS:CreationName="Microsoft.ExecuteSQLTask"
+                      DTS:Description="Update Monitoring Log Detail"
+                      DTS:DTSID="{220bf384-62c8-407b-b9bc-812a23f429d3}"
+                      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                      DTS:LocaleID="-1"
+                      DTS:ObjectName="Insert Into History Monitoring Log"
+                      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                      DTS:ThreadHint="1">
+                      <DTS:Variables />
+                      <DTS:ObjectData>
+                        <SQLTask:SqlTaskData
+                          SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                          SQLTask:SqlStatementSource="DECLARE @fileName NVARCHAR(128)&#xA;&#xA;SET @fileName = ?&#xA;&#xA;INSERT INTO dbo.HistoryMonitoringLog (MonitoringLogDate, FileName, FileModifiedDatetime, StatusId, ETLRunDatetime)&#xA;SELECT GETDATE(), FileName, FileModifiedDatetime, StatusId, ETLRunDatetime &#xA;FROM dbo.MonitoringLogDetail&#xA;WHERE FileName = @fileName" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                          <SQLTask:ParameterBinding
+                            SQLTask:ParameterName="0"
+                            SQLTask:DtsVariableName="User::fileName"
+                            SQLTask:ParameterDirection="Input"
+                            SQLTask:DataType="130"
+                            SQLTask:ParameterSize="128" />
+                        </SQLTask:SqlTaskData>
+                      </DTS:ObjectData>
+                    </DTS:Executable>
+                    <DTS:Executable
+                      DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Foreach Loop FileNames\Update Monitoring Log Detail"
+                      DTS:CreationName="Microsoft.ExecuteSQLTask"
+                      DTS:Description="Update Monitoring Log Detail"
+                      DTS:DTSID="{5941e0fb-8a88-4a4f-b1da-6afe9c4e9088}"
+                      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                      DTS:LocaleID="-1"
+                      DTS:ObjectName="Update Monitoring Log Detail"
+                      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                      DTS:ThreadHint="1">
+                      <DTS:Variables />
+                      <DTS:ObjectData>
+                        <SQLTask:SqlTaskData
+                          SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                          SQLTask:SqlStatementSource="DECLARE @monitoringLogId INT&#xA;DECLARE @monitoringConfigurationId INT&#xA;DECLARE @fileName NVARCHAR(128)&#xA;DECLARE @statusId INT&#xA;&#xA;SET @monitoringLogId = ?&#xA;SET @monitoringConfigurationId = ?&#xA;SET @fileName = ?&#xA;SET @statusId = (SELECT StatusId FROM MonitoringConfiguration&#xA;&#x9;&#x9;&#x9;&#x9; WHERE Id = @monitoringConfigurationId)&#xA;&#xA;UPDATE dbo.MonitoringLogDetail &#xA;SET StatusId = @statusId&#xA;   ,ETLRunDatetime = GETDATE()&#xA;where MonitoringLogId = @monitoringLogId and FileName = @fileName" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                          <SQLTask:ParameterBinding
+                            SQLTask:ParameterName="0"
+                            SQLTask:DtsVariableName="User::monitoringLogId"
+                            SQLTask:ParameterDirection="Input"
+                            SQLTask:DataType="131"
+                            SQLTask:ParameterSize="18" />
+                          <SQLTask:ParameterBinding
+                            SQLTask:ParameterName="1"
+                            SQLTask:DtsVariableName="User::monitoringConfigurationId"
+                            SQLTask:ParameterDirection="Input"
+                            SQLTask:DataType="131"
+                            SQLTask:ParameterSize="18" />
+                          <SQLTask:ParameterBinding
+                            SQLTask:ParameterName="2"
+                            SQLTask:DtsVariableName="User::fileName"
+                            SQLTask:ParameterDirection="Input"
+                            SQLTask:DataType="130"
+                            SQLTask:ParameterSize="128" />
+                        </SQLTask:SqlTaskData>
+                      </DTS:ObjectData>
+                    </DTS:Executable>
+                  </DTS:Executables>
+                  <DTS:PrecedenceConstraints>
+                    <DTS:PrecedenceConstraint
+                      DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Foreach Loop FileNames.PrecedenceConstraints[Constraint]"
+                      DTS:CreationName=""
+                      DTS:DTSID="{3F9A02C1-13E1-4E2E-B1E9-D84947F550B3}"
+                      DTS:EvalOp="1"
+                      DTS:Expression="@[User::countRow] &gt; 0"
+                      DTS:From="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Foreach Loop FileNames\Check File Availability On FTP Server"
+                      DTS:LogicalAnd="True"
+                      DTS:ObjectName="Constraint"
+                      DTS:To="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Foreach Loop FileNames\Insert Into History Monitoring Log" />
+                    <DTS:PrecedenceConstraint
+                      DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Foreach Loop FileNames.PrecedenceConstraints[Constraint 1]"
+                      DTS:CreationName=""
+                      DTS:DTSID="{939C7CF6-6553-4EF5-8524-5FB717E28EC8}"
+                      DTS:From="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Foreach Loop FileNames\Insert Into History Monitoring Log"
+                      DTS:LogicalAnd="True"
+                      DTS:ObjectName="Constraint 1"
+                      DTS:To="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Foreach Loop FileNames\Update Monitoring Log Detail" />
+                  </DTS:PrecedenceConstraints>
+                  <DTS:ForEachVariableMappings>
+                    <DTS:ForEachVariableMapping
+                      DTS:CreationName=""
+                      DTS:DTSID="{A8AA2985-AE6C-4A6C-86B4-3940E2F9E24D}"
+                      DTS:ObjectName="{A8AA2985-AE6C-4A6C-86B4-3940E2F9E24D}"
+                      DTS:ValueIndex="0"
+                      DTS:VariableName="User::fileName" />
+                  </DTS:ForEachVariableMappings>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Retrieve FileNames"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Retrieve FileNames"
+                  DTS:DTSID="{de320605-5a4e-4e53-a7c3-a6b0695d72ba}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Retrieve FileNames"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="1">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                      SQLTask:SqlStatementSource="DECLARE @monitoringLogId INT&#xA;DECLARE @monitoringConfigurationIdBefore INT&#xA;DECLARE @statusId INT&#xA;&#xA;SET @monitoringLogId = ?&#xA;SET @monitoringConfigurationIdBefore = ?&#xA;SET @statusId = (SELECT StatusId FROM MonitoringConfiguration&#xA;                 WHERE Id = @monitoringConfigurationIdBefore)&#xA;&#xA;SELECT FileName from dbo.MonitoringLogDetail &#xA;where MonitoringLogId = @monitoringLogId and StatusId = @statusId"
+                      SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ResultBinding
+                        SQLTask:ResultName="0"
+                        SQLTask:DtsVariableName="User::fileNames" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::monitoringLogId"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="131"
+                        SQLTask:ParameterSize="18" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="User::monitoringConfigurationIdBefore"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="131"
+                        SQLTask:ParameterSize="18" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+              <DTS:PrecedenceConstraints>
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1.PrecedenceConstraints[Constraint]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{476EDC88-000E-4232-9682-73A530BD301E}"
+                  DTS:EvalOp="1"
+                  DTS:Expression="@[User::countRow] &gt; 0"
+                  DTS:From="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Check Number Of Filenames on MonitoringLogDetail Based On MonitoringLogId and (StatusId - 1)"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Constraint"
+                  DTS:To="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Retrieve FileNames" />
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1.PrecedenceConstraints[Constraint 1]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{52061846-65E3-4318-A5C1-72E2ABEF0E37}"
+                  DTS:From="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Retrieve FileNames"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Constraint 1"
+                  DTS:To="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Foreach Loop FileNames" />
+              </DTS:PrecedenceConstraints>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Retrieve State Id Based On Monitoring Configuration Id"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Retrieve State Id Based On Monitoring Configuration Id"
+              DTS:DTSID="{21ef520e-9898-48dd-a64f-fcee68d93d86}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Retrieve State Id Based On Monitoring Configuration Id"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                  SQLTask:SqlStatementSource="/* Return StateId Based On Monitoring Configuration Id&#xA; * Input Variable Name In SSIS :&#xA; * 1. monitoringConfigurationId&#xA; * Output Variable Name In SSIS :&#xA; * 1. stateId&#xA; */&#xA;SELECT StateId FROM MonitoringConfiguration&#xA;WHERE Id = ? "
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::stateId" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::monitoringConfigurationId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="131"
+                    SQLTask:ParameterSize="18" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Store Current MonitoringConfigurationId"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Store Current MonitoringConfigurationId"
+              DTS:DTSID="{1889aa74-a447-4d8f-9724-5ca3e23d0061}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Store Current MonitoringConfigurationId"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+                  SQLTask:SqlStatementSource="DECLARE @monitoringConfigurationId INT&#xA;&#xA;SET @monitoringConfigurationId = ?&#xA;&#xA;SELECT @monitoringConfigurationId"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::monitoringConfigurationIdBefore" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::monitoringConfigurationId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="131"
+                    SQLTask:ParameterSize="18" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{D13BE245-66B2-4822-BBF5-D1B432C4A27A}"
+              DTS:EvalOp="1"
+              DTS:Expression="@[User::stateId] == 1"
+              DTS:From="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Retrieve State Id Based On Monitoring Configuration Id"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{CDF580C4-D259-46A0-876E-11A51BE7FAB8}"
+              DTS:EvalOp="1"
+              DTS:Expression="@[User::stateId] &gt;1"
+              DTS:From="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Retrieve State Id Based On Monitoring Configuration Id"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{1D6A4AC5-36BC-4EAA-A302-170926151E08}"
+              DTS:From="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Store Current MonitoringConfigurationId" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id.PrecedenceConstraints[Constraint 3]"
+              DTS:CreationName=""
+              DTS:DTSID="{400861A1-82DD-4008-AEEA-8D5886C8D86A}"
+              DTS:From="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 3"
+              DTS:To="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Store Current MonitoringConfigurationId" />
+          </DTS:PrecedenceConstraints>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{CA25A60E-3B70-47BD-802F-21F555F92D4A}"
+              DTS:ObjectName="{CA25A60E-3B70-47BD-802F-21F555F92D4A}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::monitoringConfigurationId" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loop Foreach Template File Id\Retrieve Monitoring Configuration Id"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Retrieve Monitoring Configuration Id Based On File Id Order By Sequence Order"
+          DTS:DTSID="{caaa858e-97a4-44c2-9de3-184fdb6eb0fb}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Retrieve Monitoring Configuration Id"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+              SQLTask:SqlStatementSource="/* Return Monitoring Configuration Id Based On FileId Order By Sequence Order&#xA; * Input Variable Name In SSIS&#xA; * 1. fileId&#xA; * Output Variable Name In SSIS&#xA; * 1. monitoringConfigurationIds&#xA; */&#xA;SELECT Id FROM MonitoringConfiguration&#xA;WHERE FileId = ?&#xA;ORDER BY SequenceOrder"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::monitoringConfigurationIds" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::fileId"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="131"
+                SQLTask:ParameterSize="18" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loop Foreach Template File Id\Retrieve Monitoring Log Id"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Retrieve Monitoring Log Id"
+          DTS:DTSID="{19AD5BCF-00E5-4F35-AC51-EB6804DCCD8A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Retrieve Monitoring Log Id"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+              SQLTask:SqlStatementSource="/* Return Monitoring Log Id Based On FileId&#xA; * Input Variable Name In SSIS :&#xA; * 1. fileId&#xA; */  &#xA;SELECT Id FROM MonitoringLog &#xA;WHERE FileId = ?"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::monitoringLogId" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::fileId"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="131"
+                SQLTask:ParameterSize="18" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loop Foreach Template File Id.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{5BD0F600-BE08-41FC-BFAC-035FF922FCDB}"
+          DTS:From="Package\Loop Foreach Template File Id\FTP BEI (Ready)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loop Foreach Template File Id.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{445200B9-C5BA-4A92-967D-F88A9085C7B1}"
+          DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loop Foreach Template File Id.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{EA90E8FC-7E83-4283-97C4-DDEEC2F059DB}"
+          DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loop Foreach Template File Id.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{4EEE2680-ACF7-4401-A675-E0808BF01F23}"
+          DTS:From="Package\Loop Foreach Template File Id\Retrieve Monitoring Log Id"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Loop Foreach Template File Id\Retrieve Monitoring Configuration Id" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loop Foreach Template File Id.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{673F9CEB-9189-4702-80AF-CA28596C54F4}"
+          DTS:From="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loop Foreach Template File Id.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{8DA2F105-1779-4EAB-8A73-6B5B9FBAB184}"
+          DTS:From="Package\Loop Foreach Template File Id\Retrieve Monitoring Configuration Id"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{7A93B8A2-0F60-4566-96E6-C80432138B81}"
+          DTS:ObjectName="{7A93B8A2-0F60-4566-96E6-C80432138B81}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::fileId" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Retrieve File Template Id"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4A7FD511-C798-4B5A-BC3C-A7E2E56096B4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Retrieve File Template Id"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0A118D2B-1476-4721-BBF9-4924ED15CD61}"
+          SQLTask:SqlStatementSource="/* Return File Id Based On SroId&#xA; * Output Variable Name In SSIS :&#xA; * 1. fileIds&#xA; */&#x9;&#xA;SELECT Id FROM MasterFile &#xA;WHERE SroId = 1"
+          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::filesIds" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{16916D92-F18C-437F-A3A9-0A5415F51B87}"
+      DTS:From="Package\Retrieve File Template Id"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Loop Foreach Template File Id" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="186,56"
+          Id="Package\Loop Foreach Template File Id\FTP BEI (Ready)\Check The Data That Is Ready To Be Transferred"
+          TopLeft="29.6111111111111,27.6111111111111" />
+        <NodeLayout
+          Size="170,64"
+          Id="Package\Loop Foreach Template File Id\FTP BEI (Ready)\Insert New File Data Into Table Monitoring Log Detail"
+          TopLeft="224.222222222222,144.333333333333" />
+        <NodeLayout
+          Size="170,58"
+          Id="Package\Loop Foreach Template File Id\FTP BEI (Ready)\Update Status On Monitoring Log Table"
+          TopLeft="393.666666666667,26.4722222222222" />
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP BEI (Ready).PrecedenceConstraints[Constraint]"
+          TopLeft="215.611111111111,55.5416666666666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="178.055555555556,0"
+              Start="0,0"
+              End="170.555555555556,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="170.555555555556,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="77.2777777777778,5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP BEI (Ready).PrecedenceConstraints[Constraint 1]"
+          TopLeft="478.666666666667,84.4722222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-169.444444444444,59.861111111111"
+              Start="0,0"
+              End="-169.444444444444,52.361111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.9305555555555" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.9305555555555"
+                    Point2="0,29.9305555555555"
+                    Point3="-4,29.9305555555555" />
+                  <mssgle:LineSegment
+                    End="-165.444444444444,29.9305555555555" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-165.444444444444,29.9305555555555"
+                    Point2="-169.444444444444,29.9305555555555"
+                    Point3="-169.444444444444,33.9305555555555" />
+                  <mssgle:LineSegment
+                    End="-169.444444444444,52.361111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="645,263"
+          Size="645,306"
+          Id="Package\Loop Foreach Template File Id\FTP BEI (Ready)"
+          TopLeft="102.992063492064,1483.45238095238" />
+        <NodeLayout
+          Size="209,59"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Check Availability FileNames With Extension (rar_ready_transfer) On Table Monitoring Detail"
+          TopLeft="46.5555555555556,39.4444444444446" />
+        <NodeLayout
+          Size="170,49"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Loop Foeach File Names\Check File Availability On FTP Server"
+          TopLeft="36.3888888888891,18.8333333333333" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Loop Foeach File Names\Insert Into History Monitoring Log"
+          TopLeft="39,108.75" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Loop Foeach File Names\Update Monitoring Log Detail"
+          TopLeft="38.6666666666667,196.472222222222" />
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Loop Foeach File Names.PrecedenceConstraints[Constraint]"
+          TopLeft="121.444444444445,67.8333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.9166666666667"
+              Start="0,0"
+              End="0,33.4166666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.4166666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,8.70833333333337,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Loop Foeach File Names.PrecedenceConstraints[Constraint 1]"
+          TopLeft="122.583333333333,150.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.7222222222219"
+              Start="0,0"
+              End="0,38.2222222222219">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.2222222222219" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="240,294"
+          Size="240,337"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Loop Foeach File Names"
+          TopLeft="368.777777777778,27.2222222222222" />
+        <NodeLayout
+          Size="186,52"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)\Retrieve FileNames With Extension (rar_ready_transfer)"
+          TopLeft="51,226.111111111111" />
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done).PrecedenceConstraints[Constraint]"
+          TopLeft="237,252.111111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="131.777777777778,-56.3888888888888"
+              Start="0,0"
+              End="124.277777777778,-56.3888888888888">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="61.888888888889,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.888888888889,0"
+                    Point2="65.888888888889,0"
+                    Point3="65.888888888889,-4" />
+                  <mssgle:LineSegment
+                    End="65.888888888889,-52.3888888888888" />
+                  <mssgle:CubicBezierSegment
+                    Point1="65.888888888889,-52.3888888888888"
+                    Point2="65.888888888889,-56.3888888888888"
+                    Point3="69.888888888889,-56.3888888888888" />
+                  <mssgle:LineSegment
+                    End="124.277777777778,-56.3888888888888" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done).PrecedenceConstraints[Constraint 1]"
+          TopLeft="147.527777777778,98.4444444444446">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,127.666666666667"
+              Start="0,0"
+              End="0,120.166666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,120.166666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,52.0833333333334,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="646,419"
+          Size="646,462"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done)"
+          TopLeft="100.781746031746,2342.30952380952" />
+        <NodeLayout
+          Size="209,66"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Check Availability FileNames With Extension (rar_ready_done) On Table Monitoring Detail"
+          TopLeft="46.5555555555556,39.4444444444446" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Loop Foeach File Names\Check File Availability On FTP Server"
+          TopLeft="27.956349206349,29.488095238095" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Loop Foeach File Names\Insert Into History Monitoring Log"
+          TopLeft="34.2857142857142,142.857142857143" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Loop Foeach File Names\Update Monitoring Log Detail"
+          TopLeft="31.2380952380953,259.757936507936" />
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Loop Foeach File Names.PrecedenceConstraints[Constraint]"
+          TopLeft="121.371031746032,71.488095238095">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71.3690476190477"
+              Start="0,0"
+              End="0,63.8690476190477">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.8690476190477" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,23.9345238095239,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Loop Foeach File Names.PrecedenceConstraints[Constraint 1]"
+          TopLeft="122.011904761905,184.857142857143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74.9007936507937"
+              Start="0,0"
+              End="0,67.4007936507937">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.4007936507937" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="257,358"
+          Size="257,401"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Loop Foeach File Names"
+          TopLeft="368.777777777778,25.7936507936511" />
+        <NodeLayout
+          Size="186,52"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)\Retrieve FileNames With Extension (rar_ready_done)"
+          TopLeft="51,226.111111111111" />
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved).PrecedenceConstraints[Constraint]"
+          TopLeft="237,252.111111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="131.777777777778,-25.8174603174599"
+              Start="0,0"
+              End="124.277777777778,-25.8174603174599">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="61.888888888889,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.888888888889,0"
+                    Point2="65.888888888889,0"
+                    Point3="65.888888888889,-4" />
+                  <mssgle:LineSegment
+                    End="65.888888888889,-21.8174603174599" />
+                  <mssgle:CubicBezierSegment
+                    Point1="65.888888888889,-21.8174603174599"
+                    Point2="65.888888888889,-25.8174603174599"
+                    Point3="69.888888888889,-25.8174603174599" />
+                  <mssgle:LineSegment
+                    End="124.277777777778,-25.8174603174599" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved).PrecedenceConstraints[Constraint 1]"
+          TopLeft="147.527777777778,105.444444444445">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,120.666666666666"
+              Start="0,0"
+              End="0,113.166666666666">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,113.166666666666" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,48.5833333333332,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="649,483"
+          Size="649,526"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Moved)"
+          TopLeft="97.1309523809522,2846.56349206349" />
+        <NodeLayout
+          Size="209,66"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Check Availability FileNames With Extension (rar_ready_done_moved) On Table Monitoring Detail"
+          TopLeft="46.5555555555556,39.4444444444446" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Loop Foeach File Names\Check File Availability On FTP Server"
+          TopLeft="27.956349206349,29.488095238095" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Loop Foeach File Names\Insert Into History Monitoring Log"
+          TopLeft="34.2857142857142,142.857142857143" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Loop Foeach File Names\Update Monitoring Log Detail"
+          TopLeft="31.2380952380953,259.757936507936" />
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Loop Foeach File Names.PrecedenceConstraints[Constraint]"
+          TopLeft="121.371031746032,71.488095238095">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71.3690476190477"
+              Start="0,0"
+              End="0,63.8690476190477">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.8690476190477" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,23.9345238095239,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Loop Foeach File Names.PrecedenceConstraints[Constraint 1]"
+          TopLeft="122.011904761905,184.857142857143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74.9007936507937"
+              Start="0,0"
+              End="0,67.4007936507937">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.4007936507937" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="257,358"
+          Size="257,401"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Loop Foeach File Names"
+          TopLeft="368.777777777778,25.7936507936511" />
+        <NodeLayout
+          Size="186,61"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)\Retrieve FileNames With Extension (rar_ready_done_moved)"
+          TopLeft="51,226.111111111111" />
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed).PrecedenceConstraints[Constraint]"
+          TopLeft="237,256.611111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="131.777777777778,-30.3174603174598"
+              Start="0,0"
+              End="124.277777777778,-30.3174603174598">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="61.888888888889,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.888888888889,0"
+                    Point2="65.888888888889,0"
+                    Point3="65.888888888889,-4" />
+                  <mssgle:LineSegment
+                    End="65.888888888889,-26.3174603174598" />
+                  <mssgle:CubicBezierSegment
+                    Point1="65.888888888889,-26.3174603174598"
+                    Point2="65.888888888889,-30.3174603174598"
+                    Point3="69.888888888889,-30.3174603174598" />
+                  <mssgle:LineSegment
+                    End="124.277777777778,-30.3174603174598" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed).PrecedenceConstraints[Constraint 1]"
+          TopLeft="147.527777777778,105.444444444445">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,120.666666666666"
+              Start="0,0"
+              End="0,113.166666666666">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,113.166666666666" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,48.5833333333331,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="649,483"
+          Size="649,526"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Done_Processed)"
+          TopLeft="99.3333333333333,3413.79761904762" />
+        <NodeLayout
+          Size="209,59"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Check Filenames Availability on MonitoringLogDetail Based On MonitoringLogId and StatusId-1"
+          TopLeft="46.5555555555556,39.4444444444446" />
+        <NodeLayout
+          Size="173,45"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Loop Foeach File Names\Check File Availability On FTP Server"
+          TopLeft="30.2777777777776,32.1666666666666" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Loop Foeach File Names\Insert Into History Monitoring Log"
+          TopLeft="33,121.25" />
+        <NodeLayout
+          Size="166,51"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Loop Foeach File Names\Update Monitoring Log Detail"
+          TopLeft="32.6666666666669,209.222222222222" />
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Loop Foeach File Names.PrecedenceConstraints[Constraint]"
+          TopLeft="118.388888888889,77.1666666666666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.0833333333334"
+              Start="0,0"
+              End="0,36.5833333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5833333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,10.2916666666667,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Loop Foeach File Names.PrecedenceConstraints[Constraint 1]"
+          TopLeft="117.833333333333,163.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.972222222222"
+              Start="0,0"
+              End="0,38.472222222222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.472222222222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="279,316"
+          Size="279,359"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Loop Foeach File Names"
+          TopLeft="368.777777777778,27.2222222222222" />
+        <NodeLayout
+          Size="186,52"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)\Retrieve FileNames With Extension (rar_ready)"
+          TopLeft="51,226.111111111111" />
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer).PrecedenceConstraints[Constraint]"
+          TopLeft="237,252.111111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="131.777777777778,-45.3888888888888"
+              Start="0,0"
+              End="124.277777777778,-45.3888888888888">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="61.888888888889,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.888888888889,0"
+                    Point2="65.888888888889,0"
+                    Point3="65.888888888889,-4" />
+                  <mssgle:LineSegment
+                    End="65.888888888889,-41.3888888888888" />
+                  <mssgle:CubicBezierSegment
+                    Point1="65.888888888889,-41.3888888888888"
+                    Point2="65.888888888889,-45.3888888888888"
+                    Point3="69.888888888889,-45.3888888888888" />
+                  <mssgle:LineSegment
+                    End="124.277777777778,-45.3888888888888" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer).PrecedenceConstraints[Constraint 1]"
+          TopLeft="147.527777777778,98.4444444444446">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,127.666666666667"
+              Start="0,0"
+              End="0,120.166666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,120.166666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,52.0833333333334,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="653,441"
+          Size="653,484"
+          Id="Package\Loop Foreach Template File Id\FTP OJK (Ready_Transfer)"
+          TopLeft="100.341269841271,1836.05555555556" />
+        <NodeLayout
+          Size="186,56"
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1\Check The Data That Is Ready To Be Transferred"
+          TopLeft="59.7777777777777,28.5555555555557" />
+        <NodeLayout
+          Size="179,78"
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1\Insert File Properties On Table Staging RawFiles Into MonitoringLogDetail"
+          TopLeft="61.9999999999999,241.888888888889" />
+        <NodeLayout
+          Size="186,56"
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1\Update Status On MonitoringLog Table"
+          TopLeft="59.7777777777777,144.555555555556" />
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1.PrecedenceConstraints[Constraint]"
+          TopLeft="152.777777777778,84.5555555555557">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,18.25,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1.PrecedenceConstraints[Constraint 1]"
+          TopLeft="152.138888888889,200.555555555556">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.3333333333333"
+              Start="0,0"
+              End="0,33.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="300,375"
+          Size="300,418"
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId equal 1"
+          TopLeft="43.3333333333334,206.035714285714" />
+        <NodeLayout
+          Size="186,94"
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Check Number Of Filenames on MonitoringLogDetail Based On MonitoringLogId and (StatusId - 1)"
+          TopLeft="83.3015873015873,25.8571428571429" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Foreach Loop FileNames\Check File Availability On FTP Server"
+          TopLeft="41.8888888888889,18" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Foreach Loop FileNames\Insert Into History Monitoring Log"
+          TopLeft="51.5714285714286,107.142857142857" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Foreach Loop FileNames\Update Monitoring Log Detail"
+          TopLeft="49.8571428571429,197.428571428572" />
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Foreach Loop FileNames.PrecedenceConstraints[Constraint]"
+          TopLeft="137.980158730159,60">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.1428571428571"
+              Start="0,0"
+              End="0,39.6428571428571">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.6428571428571" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,11.8214285714286,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Foreach Loop FileNames.PrecedenceConstraints[Constraint 1]"
+          TopLeft="140.464285714286,149.142857142857">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.2857142857144"
+              Start="0,0"
+              End="0,40.7857142857144">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.7857142857144" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="272,303"
+          Size="272,346"
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Foreach Loop FileNames"
+          TopLeft="42.873015873016,264.142857142857" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1\Retrieve FileNames"
+          TopLeft="82.6666666666666,168.555555555555" />
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1.PrecedenceConstraints[Constraint]"
+          TopLeft="175.984126984127,119.857142857143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.6984126984125"
+              Start="0,0"
+              End="0,41.1984126984125">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.1984126984125" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,12.5992063492063,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1.PrecedenceConstraints[Constraint 1]"
+          TopLeft="177.269841269841,210.555555555555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.5873015873019"
+              Start="0,0"
+              End="0,46.0873015873019">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.0873015873019" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="347,667"
+          Size="347,710"
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Process If stateId greater than 1"
+          TopLeft="386.25,210.361111111111" />
+        <NodeLayout
+          Size="186,56"
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Retrieve State Id Based On Monitoring Configuration Id"
+          TopLeft="295,18" />
+        <NodeLayout
+          Size="220,55"
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id\Store Current MonitoringConfigurationId"
+          TopLeft="259.365079365079,985.396825396826" />
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id.PrecedenceConstraints[Constraint]"
+          TopLeft="358.333333333333,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-165,132.035714285714"
+              Start="0,0"
+              End="-165,124.535714285714">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.4899482180932" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,49.4899482180932"
+                    Point2="0,53.4899482180932"
+                    Point3="-4,53.4899482180932" />
+                  <mssgle:LineSegment
+                    End="-161,53.4899482180932" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-161,53.4899482180932"
+                    Point2="-165,53.4899482180932"
+                    Point3="-165,57.4899482180932" />
+                  <mssgle:LineSegment
+                    End="-165,124.535714285714" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-90.5,58.4899482180932,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id.PrecedenceConstraints[Constraint 1]"
+          TopLeft="417.666666666667,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="142.083333333333,136.361111111111"
+              Start="0,0"
+              End="142.083333333333,128.861111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.242241175077" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.242241175077"
+                    Point2="0,55.242241175077"
+                    Point3="4,55.242241175077" />
+                  <mssgle:LineSegment
+                    End="138.083333333333,55.242241175077" />
+                  <mssgle:CubicBezierSegment
+                    Point1="138.083333333333,55.242241175077"
+                    Point2="142.083333333333,55.242241175077"
+                    Point3="142.083333333333,59.242241175077" />
+                  <mssgle:LineSegment
+                    End="142.083333333333,128.861111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="63.0416666666666,60.242241175077,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id.PrecedenceConstraints[Constraint 2]"
+          TopLeft="193.333333333333,624.035714285714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140.698412698413,361.361111111112"
+              Start="0,0"
+              End="140.698412698413,353.861111111112">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,211.251203369435" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,211.251203369435"
+                    Point2="0,215.251203369435"
+                    Point3="4,215.251203369435" />
+                  <mssgle:LineSegment
+                    End="136.698412698413,215.251203369435" />
+                  <mssgle:CubicBezierSegment
+                    Point1="136.698412698413,215.251203369435"
+                    Point2="140.698412698413,215.251203369435"
+                    Point3="140.698412698413,219.251203369435" />
+                  <mssgle:LineSegment
+                    End="140.698412698413,353.861111111112" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id.PrecedenceConstraints[Constraint 3]"
+          TopLeft="559.75,920.361111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-155.051587301587,65.0357142857151"
+              Start="0,0"
+              End="-155.051587301587,57.5357142857151">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.7396854048484" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.7396854048484"
+                    Point2="0,38.7396854048484"
+                    Point3="-4,38.7396854048484" />
+                  <mssgle:LineSegment
+                    End="-151.051587301587,38.7396854048484" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-151.051587301587,38.7396854048484"
+                    Point2="-155.051587301587,38.7396854048484"
+                    Point3="-155.051587301587,42.7396854048484" />
+                  <mssgle:LineSegment
+                    End="-155.051587301587,57.5357142857151" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="778,1095"
+          Size="778,1138"
+          Id="Package\Loop Foreach Template File Id\Loop Foreach Monitoring Configuration Id"
+          TopLeft="35.7619047619047,266.75" />
+        <NodeLayout
+          Size="186,56"
+          Id="Package\Loop Foreach Template File Id\Retrieve Monitoring Configuration Id"
+          TopLeft="326,146" />
+        <NodeLayout
+          Size="186,56"
+          Id="Package\Loop Foreach Template File Id\Retrieve Monitoring Log Id"
+          TopLeft="325.333333333333,33.9999999999999" />
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id.PrecedenceConstraints[Constraint]"
+          TopLeft="426.166666666667,1789.45238095238">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.6031746031756"
+              Start="0,0"
+              End="0,39.1031746031756">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.1031746031756" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id.PrecedenceConstraints[Constraint 1]"
+          TopLeft="753.341269841271,2078.05555555556">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-6.55952380952465,495.253968253968"
+              Start="0,0"
+              End="0.940476190475351,495.253968253968">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
+                  <mssgle:LineSegment
+                    End="22.5,491.253968253968" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,491.253968253968"
+                    Point2="22.5,495.253968253968"
+                    Point3="18.5,495.253968253968" />
+                  <mssgle:LineSegment
+                    End="0.940476190475351,495.253968253968" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id.PrecedenceConstraints[Constraint 2]"
+          TopLeft="422.706349206349,2804.30952380952">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.2539682539682"
+              Start="0,0"
+              End="0,34.7539682539682">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.7539682539682" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id.PrecedenceConstraints[Constraint 3]"
+          TopLeft="418.666666666667,89.9999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.0000000000001"
+              Start="0,0"
+              End="0,48.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id.PrecedenceConstraints[Constraint 4]"
+          TopLeft="422.732142857143,3372.56349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.2341269841272"
+              Start="0,0"
+              End="0,33.7341269841272">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.7341269841272" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop Foreach Template File Id.PrecedenceConstraints[Constraint 5]"
+          TopLeft="421.880952380952,202">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.75"
+              Start="0,0"
+              End="0,57.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="856,3995"
+          Size="856,4038"
+          Id="Package\Loop Foreach Template File Id"
+          TopLeft="174.18253968254,289.396825396813" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Retrieve File Template Id"
+          TopLeft="496.988095238094,180.849206349207" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="600.085317460317,222.849206349207">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66.5476190476066"
+              Start="0,0"
+              End="0,59.0476190476066">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.0476190476066" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
